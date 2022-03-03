@@ -82,3 +82,33 @@
     Ao tentar executar o projeto com nodemon na porta informada então será mostrado a mensagem acima.
     ultize o insonmia para testar.
 
+### 2.5 ) criando a tabela fornecedores:
+
+    para criar a tabela dos fornecedores sigo os passo abaixo:
+
+                const Sequelize = require('sequelize');
+                const instancia = require('../../bancodedados/index')
+
+                const columns = {
+                    empresa:{
+                        type: Sequelize.STRING,
+                        allowNull: false,
+                    },
+                    email:{
+                        type: Sequelize.STRING,
+                        allowNull: false,
+                    },
+                    categoria: {
+                        type: Sequelize.Enum('Ração', 'brinquedos'),
+                        allowNull: false
+                    }
+                }
+                const option{
+                    freezeTableName: true,
+                    tableName: 'fornecedor',
+                    timestamp: true,
+                    createAt:  'criadoEm',
+                    updateAt: 'atualizadoEm',
+                    version: 'versão'
+                }
+                module.exports = instancia.define('fornecedor', columns, option);

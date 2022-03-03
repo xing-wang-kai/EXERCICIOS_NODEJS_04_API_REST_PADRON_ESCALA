@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const instancia = require('../../banco-dados/index')
 
 
-const colunas = {
+const columns = {
     empresa: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -16,7 +16,7 @@ const colunas = {
         allowNull: false,
     }
 }
-const opcoes = {
+const option = {
     freezeTableName: true,
     tabelName: 'fornecedores',
     timestamps: true,
@@ -25,4 +25,4 @@ const opcoes = {
     version: "versao"
 }
 
-module.exports = isntancia.define('fornecedor', colunas, opcoes);
+module.exports = instancia.define('fornecedor', columns, option);
