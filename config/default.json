@@ -1,0 +1,12 @@
+{
+    "mysql":{
+        "host": "localhost",
+        "port": 3003,
+        "user": "root",
+        "password": "hoot",
+        "database": "petshop"
+    },
+    "api":{
+        "port": 3003
+    }
+}
