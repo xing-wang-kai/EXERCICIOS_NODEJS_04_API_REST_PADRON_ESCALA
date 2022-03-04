@@ -3,11 +3,11 @@ const config = require('config');
 
 const instancia = new Sequelize(
 
-    config.get('mysql.database'),
-    config.get('mysql.user'),
-    config.get('mysql.password'),
+    "petshop",
+    "root",
+    "hoot",
     {
-        host: config.get('mysql.host'),
+        host: "localhost",
         dialect: 'mysql'
     }
 
