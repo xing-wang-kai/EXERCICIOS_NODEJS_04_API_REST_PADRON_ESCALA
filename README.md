@@ -112,3 +112,6 @@
                     version: 'versão'
                 }
                 module.exports = instancia.define('fornecedor', columns, option);
+
+--------------------------------------------------------------------------------
+.continuar

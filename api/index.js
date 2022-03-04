@@ -25,7 +25,7 @@ app.get('/', (req, res)=>{
 
 app.use('/api/fornecedores', router);
 
-const port = 3003;
+const port = config.get('api.port');
 app.listen(port, () => {
     console.log(chalk.bgGreen.yellow(`Executado com sucesso na porta ${port}`))
 })
