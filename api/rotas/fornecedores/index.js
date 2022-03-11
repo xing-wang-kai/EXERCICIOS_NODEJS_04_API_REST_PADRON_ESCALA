@@ -5,7 +5,7 @@ const TabelaFornecedor = require('./TabelaFornecedor')
 router.post('/', async (req, res) =>{
     const valores = req.body;
     const fornecedor = await new Fornecedor(valores);
-    await fornecedor.criar();
+    await fornecedor.criar(fornecedor);
     res.send(
         JSON.stringify(valores)
     )

@@ -23,6 +23,7 @@ class Fornecedor{
         this.dataAtualizacao = resultado.dataAtualizacao;
         this.dataCriacao = resultado.dataCriacao;
         this.versao = resultado.versao;
+
     }
 }
 
