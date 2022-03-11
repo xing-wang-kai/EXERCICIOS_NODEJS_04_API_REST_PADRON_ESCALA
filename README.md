@@ -114,4 +114,63 @@
                 module.exports = instancia.define('fornecedor', columns, option);
 
 --------------------------------------------------------------------------------
-.continuar
+###2.6
+    após criar fornecedores é importante lembrar que recisamos iniciar a tabela
+    para isso criamos o arquivo modules dentro de bancodedados e então usamos o
+    cógido para executar o module.
+
+    const ModeloTabela = require('../rotas/fornecedores/modeloFornecedorTabela');
+
+        ModeloTabela
+            .sync()
+            .then(()=> console.log("tabela criada com sucesso!!"))
+            .catch(console.log())
+
+
+###2.7
+    Com o código criado vamos traduzir o methodo findall para busca todas ocorrencias
+    com um novo arquivo chamado Tabela fornecedor em rotas.
+
+
+    const Modelo = require('./modeloFornecedorTabela')
+
+        module.exports ={
+            listar(){
+                return Modelo.findAll()
+            },
+        }
+
+###2.8
+
+    uma vez criado este metodo então vamos consumir este recursos em nossa Rota para
+    jogar em nossa index inicial na api com method do CRUD do tipo get
+
+    const router = require('express').Router();
+    const TabelaFornecedor = require('./TabelaFornecedor')
+
+    router.use('/', async (req, res) => {
+        const resultado = await TabelaFornecedor.listar()
+        res.send(
+            JSON.stringify(resultado)
+        )
+    })
+
+    module.exports = router;
+
+###2.9
+    Agora vamos criar o method para criar novos valores, 
+    vamos em rota e criar a class para tabela de fornecedores.
+    dentro da class construimos um constructor e passamos com destruturing os valores
+    para cada um dos campos necessários, depois criamos uma função async com nome
+    criar() e então ela armazena em uma variavel do tipo resultado os dados criados
+    recebendo como parametros em criar os dados do constructor da class
+
+    Depois jogamos os valores resultados nos demais valores da class.
+
+    no arquivo principal index em rotas consumimos todos valores usando chamandos 
+    new fornecedor e então os valores no constructor e por fim chamamos o methodo
+    .criar
+
+    obs:: traduzir o method criar em modelos casos não prefirir.
+
+    
